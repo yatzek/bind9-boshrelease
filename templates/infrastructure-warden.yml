@@ -1,0 +1,36 @@
+meta:
+  environment: bind9-warden
+
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    version: latest
+
+update:
+  canaries: 1
+  max_in_flight: 50
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+
+jobs:
+  - name: just_install_packages
+    networks:
+      - name: bind91
+
+compilation:
+  cloud_properties:
+    name: random
+
+resource_pools:
+  - name: small_z1
+    cloud_properties:
+      name: random
+
+networks:
+- name: bind91
+  type: manual
+  subnets:
+  - range: 10.244.90.0/24
+    name: bind91
+    gateway: 10.244.90.1
+    static:
+      - 10.244.90.2 - 10.244.90.60
