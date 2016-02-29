@@ -1,0 +1,6 @@
+========================== 0644 /var/vcap/sys/run/master/data/all.json
+<%= properties.to_json %>
+<% properties.bind9.master.zones.to_h.each do |domain, config| %>
+========================== 0644 /var/vcap/sys/run/master/data/<%= domain %>.db
+<%= config %>
+<% end %>

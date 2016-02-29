@@ -1,0 +1,5 @@
+check process master
+  with pidfile /var/vcap/sys/run/master/master.pid
+  start program "/var/vcap/jobs/master/bin/monit_debugger master_ctl '/var/vcap/jobs/master/bin/ctl start'"
+  stop program "/var/vcap/jobs/master/bin/monit_debugger master_ctl '/var/vcap/jobs/master/bin/ctl stop'"
+  group vcap

@@ -1,0 +1,20 @@
+---
+name: slave
+packages:
+  - bind9
+templates:
+  bin/ctl: bin/ctl
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+  config/slave.conf: config/slave.conf
+
+properties:
+  bind9.slave.master:
+    description: "IP address of the master BIND9 nameserver"
+  bind9.slave.zones:
+    description: "List of zones to transfer from the master"
+  bind9.slave.allow_notify:
+    description: "ACL (possible semi-colon delimited) to allow AXFR zone transfers from"
+    default: "none"

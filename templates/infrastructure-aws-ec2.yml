@@ -9,9 +9,13 @@ meta:
     version: latest
 
 jobs:
-  - name: just_install_packages
+  - name: master
     networks:
-      - name: bind91
+      - name: named1
+    persistent_disk: (( grab meta.persistent_disk ))
+  - name: slave
+    networks:
+      - name: named1
     persistent_disk: (( grab meta.persistent_disk ))
 
 compilation:
@@ -19,7 +23,7 @@ compilation:
     instance_type: m3.medium
 
 resource_pools:
-  - name: small_z1
+  - name: named
     cloud_properties:
       instance_type: m3.medium
 
@@ -27,7 +31,7 @@ networks:
   - name: floating
     type: vip
     cloud_properties: {}
-  - name: bind91
+  - name: named1
     type: dynamic
     cloud_properties:
       security_groups: (( grab meta.security_groups ))

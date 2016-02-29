@@ -1,0 +1,5 @@
+check process slave
+  with pidfile /var/vcap/sys/run/slave/slave.pid
+  start program "/var/vcap/jobs/slave/bin/monit_debugger slave_ctl '/var/vcap/jobs/slave/bin/ctl start'"
+  stop program "/var/vcap/jobs/slave/bin/monit_debugger slave_ctl '/var/vcap/jobs/slave/bin/ctl stop'"
+  group vcap

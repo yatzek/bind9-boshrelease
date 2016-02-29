@@ -12,21 +12,26 @@ update:
   update_watch_time: 1000-30000
 
 jobs:
-  - name: just_install_packages
+  - name: master
     networks:
-      - name: bind91
+      - name: named
+        static_ips: (( static_ips 0 ))
+  - name: slave
+    networks:
+      - name: named
+        static_ips: (( static_ips 1 2 ))
 
 compilation:
   cloud_properties:
     name: random
 
 resource_pools:
-  - name: small_z1
+  - name: named
     cloud_properties:
       name: random
 
 networks:
-- name: bind91
+- name: named
   type: manual
   subnets:
   - range: 10.244.90.0/24
