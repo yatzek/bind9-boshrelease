@@ -1,0 +1,24 @@
+---
+packages:
+- name: bind9
+  version: c445ea362fa2ba2f04f40fe6d5a09f77b7637016
+  fingerprint: c445ea362fa2ba2f04f40fe6d5a09f77b7637016
+  sha1: 85bc6a286f1cf5a3b8c96a6be9205d0813cd3b9a
+  dependencies: []
+jobs:
+- name: master
+  version: 40b7def267b6889c5b830fa2953fdf63a47b2ebc
+  fingerprint: 40b7def267b6889c5b830fa2953fdf63a47b2ebc
+  sha1: a296ba975016d2e1c34553039d994fd20f3bc5f0
+- name: slave
+  version: 1d3c6fc05532e654196f5d16f011fd4867e4a05a
+  fingerprint: 1d3c6fc05532e654196f5d16f011fd4867e4a05a
+  sha1: e07e9a126fa4a17ff291880e22970e0d840b7156
+license:
+  version: ec16b6c95de5c9122dcf472815239a76d1b6c9ea
+  fingerprint: ec16b6c95de5c9122dcf472815239a76d1b6c9ea
+  sha1: 3f3f487bacde0d65d047ae3d87e98f17e157595d
+commit_hash: 3d1d20d2
+uncommitted_changes: true
+name: bind9
+version: 0.2.0
