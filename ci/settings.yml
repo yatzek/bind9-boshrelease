@@ -1,0 +1,26 @@
+---
+meta:
+  name:    bind9-boshrelease
+  release: BIND9
+  target:  sw
+  url:     https://ci.vsphere.starkandwayne.com
+
+  initial_version: 0.2.0
+
+  bosh-lite:
+    target: https://10.58.111.44:25555
+
+  aws:
+    access_key: (( vault "secret/aws/cfcommunity:access" ))
+    secret_key: (( vault "secret/aws/cfcommunity:secret" ))
+
+  github:
+    owner:  cloudfoundry-community
+    repo:   bind9-boshrelease
+    branch: master
+    private_key:  (( vault "secret/pipelines/bind9-boshrelease/github:private" ))
+    access_token: (( vault "secret/pipelines/bind9-boshrelease/github:token" ))
+
+  slack:
+    webhook: (( vault "secret/pipelines/bind9-boshrelease/slack:webhook" ))
+    channel: '#botspam'
