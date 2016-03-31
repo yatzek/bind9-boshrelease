@@ -2,9 +2,9 @@
 name: master
 packages:
   - bind9
-  - ttar
 templates:
   bin/ctl: bin/ctl
+  bin/ttar: bin/ttar
   bin/monit_debugger: bin/monit_debugger
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh

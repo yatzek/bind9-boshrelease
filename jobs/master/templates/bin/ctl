@@ -8,7 +8,6 @@ source /var/vcap/jobs/master/helpers/ctl_setup.sh 'master'
 
 export PORT=${PORT:-5000}
 export LANG=en_US.UTF-8
-export PATH=$PATH:/var/vcap/packges/ttar/bin
 
 datadir="/var/vcap/sys/run/master/data"
 
@@ -23,7 +22,7 @@ case $1 in
     # re-inflate zone files
     rm -f ${datadir}/*.db
     mkdir -p ${datadir}
-    ttar < ${JOB_DIR}/config/zones.ttar
+    ${JOB_DIR}/bin/ttar < ${JOB_DIR}/config/zones.ttar
 
     exec named \
          -g -c ${JOB_DIR}/config/master.conf \
