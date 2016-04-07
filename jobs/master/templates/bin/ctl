@@ -16,13 +16,30 @@ case $1 in
   start)
     pid_guard $PIDFILE $JOB_NAME
 
-    # store pid in $PIDFILE
-    echo $$ > $PIDFILE
-
     # re-inflate zone files
     rm -f ${datadir}/*.db
     mkdir -p ${datadir}
     ${JOB_DIR}/bin/ttar < ${JOB_DIR}/config/zones.ttar
+
+    # check configuration
+    echo "checking named master configuration..."
+    named-checkconf ${JOB_DIR}/config/master.conf
+    echo "named master configuration OK"
+    echo
+
+    for file in ${datadir}/*.db; do
+      zone=${file##*/}
+      zone=${zone%%.db}
+      echo "checking zone '${zone}' (in ${file})..."
+      named-checkzone ${zone} ${file}
+      echo "zone '${zone}' OK"
+      echo
+    done
+    echo "all zones OK"
+    echo
+
+    # store pid in $PIDFILE
+    echo $$ > $PIDFILE
 
     exec named \
          -g -c ${JOB_DIR}/config/master.conf \
