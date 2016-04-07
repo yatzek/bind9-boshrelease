@@ -18,3 +18,10 @@ properties:
   bind9.slave.allow_notify:
     description: "ACL (possible semi-colon delimited) to allow AXFR zone transfers from"
     default: "none"
+
+  bind9.recursion.forwarders:
+    description: "List of DNS servers to forward recursive queries on to. If not specified, recursion is disabled"
+    default: []
+  bind9.recursion.allow_from:
+    description: "List of IPs or CIDRs to allow recursive queries from. If recursion is enabled, localhost and localnets will always be allowed"
+    default: []
