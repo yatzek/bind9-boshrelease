@@ -1,6 +1,6 @@
 ---
 meta:
-  name:    bind9-boshrelease
+  name:    bind9
   release: BIND9
   target:  sw
   url:     https://ci.vsphere.starkandwayne.com
