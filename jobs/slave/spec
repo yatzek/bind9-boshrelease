@@ -29,3 +29,7 @@ properties:
   bind9.options:
     description: "Map of additional options"
     default: {}
+
+  bind9.keys:
+    description: "Map of TSIG keys for updates"
+    default: {}
