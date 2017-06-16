@@ -37,3 +37,8 @@ properties:
   bind9.tsig_keys:
     description: "Map of TSIG keys for updates"
     default: {}
+
+  bind9.allow_update:
+    description: "Zone to key-name map, listed zones will be updatable. Keys have to be configured under bind9.tsig_keys"
+    default: {}
+    
